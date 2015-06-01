@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-2"?>
+<!DOCTYPE html [<!ENTITY nbsp "&#160;">]>
+<ui:composition 
+	template="../template/main-template.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:define name="title">Suggestion Show</ui:define>
+	<ui:define name="logo">Suggestion Show</ui:define>
+	<ui:define name="content">
+		<div class="content">
+			<div class="title">Your suggestion:</div>
+			<div class="text">
+				<p>
+					<h:panelGrid columns="9" rendered="#{wish.disable}">
+						<table>
+							<tr>
+								<h:outputText value="Thanks!" style="text-align: right; font-size: large;"/>
+							</tr>
+						</table>
+					</h:panelGrid>
+					<h:panelGrid columns="9" rendered="#{not wish.disable}">
+						<table>
+							<tr>
+								<h:outputText value="Name: " style="text-align: right;"/>
+								<h:outputText value="#{wish.name}" title="name" id="name"/>
+							</tr>
+							<tr>
+								<h:outputText value="Quality: " style="text-align: right;"/>
+								<h:outputText value="#{wish.quality}" title="quality" id="quality"/>
+							</tr>
+							<tr>
+								<h:outputText value="Price (PLN):" style="text-align: right;"/>
+								<h:outputText value="#{wish.price}" title="price" id="price">
+									<f:convertNumber type="currency" currencySymbol="PLN"/>
+								</h:outputText>
+							</tr>
+							<tr>
+								<h:outputText value="Description: " style="text-align: right;"/>
+								<h:outputText value="#{wish.description}" title="description" id="description"/>
+							</tr>
+						</table>
+					</h:panelGrid>
+					<h:form id="form" title="form">
+						<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<h:commandButton disabled="#{wish.disable}" type="submit" id="confirm" title="Confirm" action="#{wish.confirm}" value="Confim"/>
+					</h:form>
+				</p>
+			</div>
+			<br />
+		</div>
+	</ui:define>
+</ui:composition>

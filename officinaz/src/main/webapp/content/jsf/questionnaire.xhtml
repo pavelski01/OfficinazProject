@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="iso-8859-2"?>
+<!DOCTYPE html [<!ENTITY nbsp "&#160;">]>
+<ui:composition 
+	template="../template/main-template.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+ 	<ui:define name="title">Questionnaire</ui:define>
+ 	<ui:define name="logo">Questionnaire</ui:define>
+	<ui:define name="content">
+		<div class="content">				
+			<div class="title">Fill in a questionnaire</div>
+			<div class="text">
+				<p>Subscribe to news about our products:</p>
+				<p>
+					<h:form>
+						<h:panelGrid columns="15">
+							<table>
+								<tr>
+									<h:outputText value="Forename: "/>
+									<h:inputText 
+										value="#{subscription.forename}" 
+										title="forename" 
+										id="forename" 
+										required="true" 
+										requiredMessage="You must enter a forename (20 characters max.)" 
+										validator="#{subscription.validateForename}">
+										<f:validateLength maximum="20"/>
+									</h:inputText>
+									<h:message for="forename" style="color:red; margin:0"/>
+								</tr>                                                    
+								<tr>
+									<h:outputText value="Surname: "/>
+									<h:inputText 
+										value="#{subscription.surname}" 
+										title="surname" 
+										id="surname" 
+										required="true" 
+										requiredMessage="You must enter a surname (between 2 and 20 characters)"
+										validator="#{subscription.validateSurname}">
+										<f:validateLength minimum="2" maximum="20"/>
+									</h:inputText>
+									<h:message for="surname" style="color:red; margin:0"/>
+								</tr>
+								<tr>
+									<h:outputText value="Company: "/>
+									<h:inputText 
+										value="#{subscription.company}" 
+										title="company" 
+										id="company" 
+										required="false" 
+										requiredMessage="You must enter a company" 
+										validator="#{subscription.validateCompany}"/>
+									<h:message for="company" style="color:red; margin:0"/>
+								</tr>
+								<tr>
+									<h:outputText value="Address: "/>
+									<h:inputText 
+										value="#{subscription.address}" 
+										title="address" 
+										id="address"/>
+								</tr>
+								<tr>
+									<h:outputText value="Phone: "/>
+									<h:inputText 
+										value="#{subscription.phone}" 
+										title="phone" 
+										id="phone" 
+										required="false" 
+										requiredMessage="You must enter a phone" 
+										validator="#{subscription.validatePhone}"/>
+									<h:message for="phone" style="color:red; margin:0"/>
+								</tr>                                                    
+								<tr>
+									<h:outputText value="Language (english/polish/russian): "/>
+									<h:inputText 
+										value="#{subscription.language}" 
+										title="language" 
+										id="language" 
+										required="true" 
+										requiredMessage="You must enter a language" 
+										validator="#{subscription.validateLanguage}"/>
+									<h:message for="language" style="color:red; margin:0"/>
+								</tr>                                                    
+								<tr>
+									<h:outputText value="Email: "/>
+									<h:inputText 
+										value="#{subscription.mail}" 
+										title="mail" 
+										id="mail" 
+										required="true" 
+										requiredMessage="You must enter an e-mail" 
+										validator="#{subscription.validateMail}"/>
+									<h:message for="mail" style="color:red; margin:0"/>
+								</tr>                                                    
+								<tr>
+									<h:outputText value="Message: "/>
+									<h:inputTextarea 
+										cols="20" 
+										rows="3" 
+										value="#{subscription.message}" 
+										title="message" 
+										id="message" 
+										required="true" 
+										requiredMessage="Please enter a message"/>
+									<h:message for="message" style="color:red; margin:0"/>
+								</tr>                                                                         
+							</table>
+						</h:panelGrid>
+						<div style="float: left; text-align: left;">
+							<br/>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<h:commandButton type="submit" value="Submit" action="questionnaire-show"/>
+							&nbsp;&nbsp;&nbsp;
+							<h:commandButton type="reset" value="Reset"/>
+							<br/>
+							<br/>
+							<br/>				
+							<img src="../jpg/red-pencil-survey.jpg" style="text-align: center; margin: 0 auto;"/>
+						</div>
+					</h:form>
+				</p>
+			</div>
+			<br/>
+		</div>
+	</ui:define>
+</ui:composition>

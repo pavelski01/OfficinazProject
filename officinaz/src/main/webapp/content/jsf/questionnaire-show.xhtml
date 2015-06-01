@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-2"?>
+<!DOCTYPE html [<!ENTITY nbsp "&#160;">]>
+<ui:composition 
+	template="../template/main-template.xhtml" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<ui:define name="title">Subscribe Show</ui:define>
+	<ui:define name="logo">Subscribe Show</ui:define>
+	<ui:define name="content">
+		<div class="content">				
+			<div class="title">Subscribe news:</div>
+			<div class="text">
+				<p>
+					<h:panelGrid columns="9">
+						<table>
+							<tr>
+								<h:outputText value="Forename: " style="text-align: right"/>
+								<h:outputText value="#{subscription.forename}" title="forename" id="forename"/>
+							</tr>
+                       		<tr>
+                       			<h:outputText value="Surname: " style="text-align: right"/>
+                       			<h:outputText value="#{subscription.surname}" title="surname" id="surname"/>
+                      		</tr>
+                       		<tr>
+                       			<h:outputText value="Company: " style="text-align: right"/>
+                       			<h:outputText value="#{subscription.company}" title="company" id="comapany"/>
+                      		</tr>
+                       		<tr>
+                       			<h:outputText value="Address: " style="text-align: right"/>
+                       			<h:outputText value="#{subscription.address}" title="address" id="address"/>
+                      			</tr>
+                       		<tr>
+                       			<h:outputText value="Phone: " style="text-align: right"/>
+                       			<h:outputText value="#{subscription.phone}" title="phone" id="phone"/>
+                      			</tr>
+                       		<tr>
+                       			<h:outputText value="Language: " style="text-align: right"/>
+                       			<h:outputText value="#{subscription.language}" title="language" id="language"/>
+                      		</tr>
+                       		<tr>
+                       			<h:outputText value="Email: " style="text-align: right"/>
+                       			<h:outputText value="#{subscription.mail}" title="mail" id="mail"/>
+                      		</tr>
+                       		<tr>
+                       			<h:outputText value="Message: " style="text-align: right"/>
+                       			<h:outputText value="#{subscription.message}" title="message" id="message"/>
+                      		</tr>
+                   		</table>
+					</h:panelGrid>                                        
+					<h:form id="form" title="form">
+						<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<h:commandButton disabled="#{not subscription.disable}" type="submit" id="confirm" title="Confirm" action="#{subscription.confirm}" value="Confim"/>
+					</h:form>
+				</p>
+			</div>
+			<br/>
+		</div>
+	</ui:define>
+</ui:composition>

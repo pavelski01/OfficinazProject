@@ -1,0 +1,36 @@
+Power Loader from Aliens/1/1000/2
+Hoverboard from Back to the Future/2/150/5
+Batarang from Batman/3/20/100
+Grappling Gun from Batman/4/100/7
+Flying Car from Blade Runner/5/52000/2
+Mr Wilson Volley Ball from Cast Away/6/15/30
+Leg Lamp from Christmas Story/7/120/15
+Riddick Goggles from Chronicles of Riddick/8/50/20
+Mariachi Guitar Case from Desperado/9/550/8
+.44 Magnum from Dirty Harry/10/1200/10
+Nunchaku from Enter the Dragon/11/300/15
+Yellow Jumpsuit from Enter the Dragon/12/350/10
+Necronomicon from Evil Dead/13/70/15
+Hockey Mask from Friday the 13th/14/80/15
+Barb-o-Mite from Futurama/15/15/100
+Shoe Phone from Get Smart/16/70/10
+Proton Pack from Ghostbusters/17/840/8
+Invisibility Cloak from Harry Potter/18/230/10
+Babel Fish from Hitchhiker's Guide to the Galaxy/19/15/50
+Bullwhip from Indiana Jones/20/450/16
+Fedora Hat from Indiana Jones/21/35/30
+Copter Hat from Inspector Gadget/22/310/14
+Walther PPK from James Bond 007/23/1500/10
+X-Ray Glasses from James Bond 007/24/240/20
+Katana Sword from Kill Bill/25/5600/3
+Ring from Lord of the Rings/26/150/50
+Neuralizer from Men in Black/27/300/60
+Explosive Chewing Gum from Mission: Impossible/28/5/200
+Sticky Gloves from Mission: Impossible/29/65/12
+Bladed Glove from Nightmare on Elm Street/30/120/8
+Communicator from Star Trek/31/50/20
+Force Fields from Star Trek/32/900/10
+Teleporter from Star Trek/33/400/22
+Lightsaber from Star Wars/34/110/40
+Jet Pack from Thunderball/35/460/20
+V Mask from V from Vendetta/36/45/15
