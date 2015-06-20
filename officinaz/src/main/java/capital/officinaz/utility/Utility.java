@@ -31,11 +31,12 @@ public class Utility
 		TRANSACTION = BRAND + "Transaction.txt";
 	private final static String[] MESSAGES = 
 	{
-		"LOGIN/PASSWORD", 
-		"NAME/ID/PRICE/QUANTITY", 
-		"LOGIN/NAME/ID/PRICE/QUANTITY",
-		"LOGIN/SURNAME/FORENAME/MAIL/ADDRESS/PHONE/COMPANY/LANGUAGE/MESSAGE",
-		"LOGIN/NAME/QUALITY/PRICE/DESCRIPTION"
+		"LOGIN" + SEPARATOR + "PASSWORD", 
+		"NAME" + SEPARATOR + "ID" + SEPARATOR + "PRICE" + SEPARATOR + "QUANTITY", 
+		"LOGIN" + SEPARATOR + "NAME" + SEPARATOR + "ID" + SEPARATOR + "PRICE" + SEPARATOR + "QUANTITY",
+		"LOGIN" + SEPARATOR + "SURNAME" + SEPARATOR + "FORENAME" + SEPARATOR + "MAIL" + SEPARATOR + 
+			"ADDRESS" + SEPARATOR + "PHONE" + SEPARATOR + "COMPANY" + SEPARATOR + "LANGUAGE" + SEPARATOR + "MESSAGE",
+		"LOGIN" + SEPARATOR + "NAME" + SEPARATOR + "QUALITY" + SEPARATOR + "PRICE" + SEPARATOR + "DESCRIPTION"
 	};
 	
 	static 
@@ -43,8 +44,8 @@ public class Utility
 		TXT_DIRECTORY = Utility.class.getProtectionDomain().
 			getCodeSource().getLocation().getPath();
 		for (int i = 0; i < 6; i++)
-			TXT_DIRECTORY = TXT_DIRECTORY.substring(0, TXT_DIRECTORY.lastIndexOf('/'));
-		TXT_DIRECTORY = TXT_DIRECTORY + "/content/txt/";
+			TXT_DIRECTORY = TXT_DIRECTORY.substring(0, TXT_DIRECTORY.lastIndexOf(SEPARATOR));
+		TXT_DIRECTORY = TXT_DIRECTORY + SEPARATOR + "content" + SEPARATOR + "txt"  + SEPARATOR;
 		createSpecificFile(WORKSPACE + STORAGE, MESSAGES[0]);
 		boolean flag = false;
 		flag = createSpecificFile(WORKSPACE + SHOP, MESSAGES[1]);
@@ -174,17 +175,17 @@ public class Utility
         try
         {
         	FileReader fileReader = new FileReader(file);            
-            BufferedReader bufferedReader = new BufferedReader(fileReader);        
-            readedList = new ArrayList<String>();
-            String line = bufferedReader.readLine();
-            if (!line.equals(MESSAGES[0]))
+            	BufferedReader bufferedReader = new BufferedReader(fileReader);        
+            	readedList = new ArrayList<String>();
+            	String line = bufferedReader.readLine();
+            	if (!line.equals(MESSAGES[0]))
         	{
-            	bufferedReader.close();
-            	return null;
+            		bufferedReader.close();
+            		return null;
         	}
-            while ((line = bufferedReader.readLine()) != null) readedList.add(line);
-            bufferedReader.close();
-            fileReader.close();            
+      		while ((line = bufferedReader.readLine()) != null) readedList.add(line);
+            	bufferedReader.close();
+            	fileReader.close();            
         } 
         catch (FileNotFoundException fnfEx) {}
         catch (IOException ioEx) {}
@@ -197,13 +198,13 @@ public class Utility
         try
         {	
         	FileWriter fileWriter = new FileWriter(file, true);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.newLine();
-            bufferedWriter.write(_text);
-            bufferedWriter.flush();
-            fileWriter.flush();
-            bufferedWriter.close();
-            fileWriter.close();            
+            	BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            	bufferedWriter.newLine();
+            	bufferedWriter.write(_text);
+            	bufferedWriter.flush();
+            	fileWriter.flush();
+            	bufferedWriter.close();
+            	fileWriter.close();            
         }
         catch (FileNotFoundException fnfEx) {}
         catch (IOException ioEx) {}
