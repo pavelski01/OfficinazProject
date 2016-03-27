@@ -16,18 +16,17 @@ import java.util.HashMap;
 public class Utility
 {
 	private static String TXT_DIRECTORY;
-	private final static String EMPTY = "";
 	private final static String BRAND = "Officinaz";	
-	private final static String SEPARATOR = System.getProperty("file.separator");
+	private final static String SEPARATOR = "/";
 	private final static String NEW_LINE = System.getProperty("line.separator");
-	private final static String WORKSPACE = System.getProperty("user.home") + 
+	private final static String WORKSPACE = System.getProperty("user.home").replace("\\", "/") + 
 		SEPARATOR + BRAND + "Project" + SEPARATOR;	
 	private final static String GADGET = "gadgets.txt";
 	private final static String
 		MESSAGE = BRAND + "Message.txt",
 		STORAGE = BRAND + "Storage.txt",
 		SHOP = BRAND + "Shop.txt",
-		SUBSCRIBE = BRAND + "Subscription",
+		SUBSCRIBE = BRAND + "Subscription.txt",
 		TRANSACTION = BRAND + "Transaction.txt";
 	private final static String[] MESSAGES = 
 	{
@@ -42,8 +41,8 @@ public class Utility
 	static 
 	{
 		TXT_DIRECTORY = Utility.class.getProtectionDomain().
-			getCodeSource().getLocation().getPath();
-		for (int i = 0; i < 6; i++)
+			getCodeSource().getLocation().getPath().replace("\\", "/");
+		for (int i = 0; i < 2; i++)
 			TXT_DIRECTORY = TXT_DIRECTORY.substring(0, TXT_DIRECTORY.lastIndexOf(SEPARATOR));
 		TXT_DIRECTORY = TXT_DIRECTORY + SEPARATOR + "content" + SEPARATOR + "txt"  + SEPARATOR;
 		createSpecificFile(WORKSPACE + STORAGE, MESSAGES[0]);
@@ -60,7 +59,7 @@ public class Utility
 	public static boolean checkSubscription(String _login)
 	{
 		boolean flag = false;
-		if (_login == null || _login.equals(EMPTY)) return flag;
+		if (_login == null || _login.equals("")) return flag;
 		flag = true;
 		File file = new File(WORKSPACE + SUBSCRIBE);
 		try
@@ -131,7 +130,7 @@ public class Utility
         {   
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);           
-            String text = EMPTY, purchased = EMPTY;
+            String text = "", purchased = "";
             String line, name, id, price;
             int quantity, capacity, nr = 0;
             text += line = bufferedReader.readLine() + NEW_LINE;
@@ -254,7 +253,7 @@ public class Utility
 			file.getParentFile().mkdirs(); 
 			try { file.createNewFile(); } 
 			catch (IOException ioEx) {}			
-			if (!_firstLine.equals(EMPTY))
+			if (!_firstLine.equals(""))
 			{
 				try
 				{
